@@ -9,11 +9,13 @@ class ControllerBase extends Controller
     public function onConstruct()
     {
         // CSS
-        $this->assets->addCss("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css", false);
+        $this->assets->addCss("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap", false);
+        
+        $this->assets->addCss("css/bootstrap.min.css", true);
+        $this->assets->addCss("css/style.css");
 
         // JS
-        $this->assets->addJs("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js", false); 
-        $this->assets->addJs("https://code.jquery.com/jquery-3.3.1.slim.min.js", false);
-        
+        $this->assets->addJs("js/bootstrap.min.js");
+        $this->assets->addJs("js/jquery-3.3.1.min.js");
     }
 }

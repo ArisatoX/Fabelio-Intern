@@ -4,11 +4,9 @@ declare(strict_types=1);
 namespace App\Controllers;
 
 use App\Models\Furniture;
-use Phalcon\Mvc\Model\Query;
 
 class IndexController extends ControllerBase
 {
-
     public function indexAction()
     {
         // Find base
@@ -24,19 +22,19 @@ class IndexController extends ControllerBase
         // If targets are empty
         if(empty($target))
         {
-            $query = new Query(
-                "UPDATE App\Models\Furniture SET available = 1 WHERE productName != :productName:",
-                $this->getDI()
-            );
-            $reset = $query->execute(
+            $query = $this->modelsManager->createQuery("UPDATE App\Models\Furniture SET available = 1 WHERE productName != :productName:");
+            $success = $query->execute(
                 [
-                    'productName' => 'Sofa 2 dudukan Vienna',
+                    'productName' => 'Sofa 2 dudukan Vienna'
                 ]
             );
 
-            $query = $this->modelsManager->createQuery("SELECT * FROM App\Models\Furniture x WHERE x.productName != 'Sofa 2 dudukan Vienna' AND x.available != 0 ");
-            $target = $query->execute();
-            $target = $target->toArray();
+            if($success)
+            {
+                $query = $this->modelsManager->createQuery("SELECT * FROM App\Models\Furniture x WHERE x.productName != 'Sofa 2 dudukan Vienna' AND x.available != 0 ");
+                $target = $query->execute();
+                $target = $target->toArray();
+            }
         }
         
         // Calculation process
@@ -60,13 +58,15 @@ class IndexController extends ControllerBase
         
         // Update availability
         $conditions = ['id'=>$result];
-        $stock = Furniture::findFirst([
-        'conditions' => 'id= :id:',
-        'bind' => $conditions,
-        ]);
+        $stock = Furniture::findFirst(
+            [
+                'conditions' => 'id= :id:',
+                'bind' => $conditions
+            ]
+        );
         $stock->available = 0;
         $success = $stock->save();
-        
+
         // Pass data to view
         if($success) $this->view->furniture = $furniture;
         else
@@ -101,5 +101,4 @@ class IndexController extends ControllerBase
         // var_dump($result);
         // $this->view->disable();
     }
-
 }
