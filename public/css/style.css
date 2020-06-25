@@ -1,15 +1,15 @@
-html {
-    overflow:hidden;
+.container {
+    padding-top:25px;
+    padding-left:160px;
 }
 
-.container {
-    margin-top:2px;
-    margin-left:250px;
+.container .row .col-lg-9 .card{
+    width:800px;
 }
 
 .container .row .col-lg-9 .card .card-img-top {
-    width:900px;
-    height:400px;
+    width:800px;
+    height:350px;
 }
 
 .container .row .col-lg-9 .card-text {
