@@ -27,3 +27,15 @@ INSERT INTO Furniture VALUES ('Sofa 1 dudukan Taby', '2399000', '90 x 82 x 58', 
 INSERT INTO Furniture VALUES ('Sofa 1 dudukan Zoey', '2399000', '90 x 82 x 58', 'brown vienna, ruby vienna', 'hollow steel', 'https://fabelio.com/media/catalog/product/k/u/Kursi_Zoey_Armchair_(Brown)_0.jpg');
 INSERT INTO Furniture VALUES ('Sofa 1 dudukan Vienna', '2199000', '90 x 82 x 58', 'custard vienna, graphite vienna, ruby vienna', 'solid wood', 'https://fabelio.com/media/catalog/product/w/i/wina_armchair__graphite__1_1.jpg');
 
+--Update Table
+ALTER TABLE Furniture
+add available int;
+
+--Update Data
+UPDATE Furniture
+SET available = 1
+
+UPDATE Furniture
+SET available = 0
+where productName = 'Sofa 2 dudukan Vienna'
+
