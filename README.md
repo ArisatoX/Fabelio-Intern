@@ -21,8 +21,19 @@ If you are accessing this from windows, I think you can find the conf file in yo
 </VirtualHost>
 ```
 
-2. Then, in linux, you have to enable this by using the sudo a2ensite intern.local and then reload apache by using service apache2 reload. From windows, just click stop and start
-apache again (I used XAMPP, the other program will be similar to I think).
+2. Then, in linux, you have to enable this by using the 
+
+```
+sudo a2ensite intern.local
+```
+
+and then reload apache by using
+
+```
+service apache2 reload 
+```
+
+From windows, just click stop and start apache again (I used XAMPP, the other program will be similar to I think).
 
 3. Setup the virtual host address. I used hostsman application to do it, but you can also do it manually. It should be in C:\Windows\System32\drivers\etc\hosts. 
 Add this line into the file. Make sure you open the notepad using administrator privileges.
