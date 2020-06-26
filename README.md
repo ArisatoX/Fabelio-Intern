@@ -3,6 +3,8 @@
 I'm using PHP and Phalcon framework to build the backend of the web. I used SQL Server for the database. I'm also using WSL which is the windows subsystem for linux. 
 I've already included the htaccess file in the root and public folder too. 
 
+Note: The product list starts from Sofa Tempat Tidur Mochi
+
 Setup Manual:
 1. Setup the virtual host configuration. I'm setting up my vhost in WSL so the apache virtual host location should be in /etc/apache2/sites-available.
 If you are accessing this from windows, I think you can find the conf file in your apache/conf/extra folder. Then you should add this command:
